@@ -1,11 +1,11 @@
 <?php require 'inc/data/products.php'; ?>
 <?php require 'inc/head.php';
-var_dump($_GET);
 if (isset($_GET['add_to_card'])) {
     $_SESSION['card'][] = $_GET['add_to_card'];
 }
-
-var_dump($_SESSION);
+if (!isset($_SESSION["login"])) {
+    header("location: login.php");
+}
 ?>
 <section class="cookies container-fluid">
     <div class="row">
@@ -25,7 +25,5 @@ var_dump($_SESSION);
             </div>
         <?php } ?>
     </div>
-
-
 </section>
 <?php require 'inc/foot.php'; ?>
